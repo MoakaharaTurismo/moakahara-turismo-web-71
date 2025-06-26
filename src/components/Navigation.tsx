@@ -21,6 +21,9 @@ const Navigation = () => {
     { name: 'Home', href: '/' },
     { name: 'Sobre', href: '/#sobre' },
     { name: 'Passeios', href: '/#passeios' },
+    { name: 'Histórias', href: '/historias' },
+    { name: 'Curiosidades', href: '/curiosidades' },
+    { name: 'Roteiros', href: '/roteiros' },
     { name: 'Monte Seu Combo', href: '/combo' },
     { name: 'Ingressos', href: '/ingressos' },
     { name: 'Contato', href: '/#contato' }
@@ -55,13 +58,13 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden lg:flex space-x-6">
             {menuItems.map((item) => (
               item.href.startsWith('/') && !item.href.startsWith('/#') ? (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="font-montserrat text-verde-floresta hover:text-azul-cataratas transition-colors duration-300 relative group"
+                  className="font-montserrat text-verde-floresta hover:text-azul-cataratas transition-colors duration-300 relative group text-sm"
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-cataratas group-hover:w-full transition-all duration-300"></span>
@@ -70,7 +73,7 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="font-montserrat text-verde-floresta hover:text-azul-cataratas transition-colors duration-300 relative group"
+                  className="font-montserrat text-verde-floresta hover:text-azul-cataratas transition-colors duration-300 relative group text-sm"
                   onClick={() => handleLinkClick(item.href)}
                 >
                   {item.name}
@@ -81,7 +84,7 @@ const Navigation = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex">
+          <div className="hidden lg:flex">
             <Link
               to="/combo"
               className="bg-verde-floresta hover:bg-azul-cataratas text-white px-6 py-2 rounded-full font-montserrat font-semibold transition-all duration-300 transform hover:scale-105"
@@ -92,7 +95,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-verde-floresta"
+            className="lg:hidden text-verde-floresta"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -101,7 +104,7 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
+          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {menuItems.map((item) => (
                 item.href.startsWith('/') && !item.href.startsWith('/#') ? (

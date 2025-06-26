@@ -3,7 +3,7 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
-import { MapPin, Clock, Users, Star, AlertTriangle } from 'lucide-react';
+import { MapPin, Clock, Users, Star, AlertTriangle, Ticket } from 'lucide-react';
 
 const IngressosPage = () => {
   const attractions = [
@@ -14,11 +14,9 @@ const IngressosPage = () => {
       description: 'Um mergulho na história e cultura locais: comece na majestosa Itaipu, respire a serenidade do Templo Budista, saboreie um almoço delicioso no Barracão, explore a Catedral de Guadalupe, visualize a beleza arquitetônica da Mesquita e finalize com um passeio pelas vibrantes avenidas da cidade.',
       highlight: 'Um dia inesquecível pelas raízes e alma de Foz',
       prices: {
-        transport: 350,
-        transportFor2: 200,
         description: 'R$ 350 (até 4 pessoas) ou R$ 200 (2 pessoas)'
       },
-      duration: '8 horas',
+      duration: '5-7 horas',
       image: 'https://images.unsplash.com/photo-1539650116574-75c0c6dee9d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
@@ -28,11 +26,7 @@ const IngressosPage = () => {
       description: 'Sinta a grandiosidade da natureza na Garganta do Diabo e em trilhas envolventes por passarelas molhadas — um espetáculo da UNESCO que emociona todos os sentidos.',
       highlight: 'Vista panorâmica das quedas mais famosas do mundo',
       prices: {
-        ticketBrazilian: 105,
-        ticketForeigner: 116,
-        transport: 100,
-        totalBrazilian: 205,
-        description: 'Brasileiro: R$ 105 + Transporte R$ 100 = R$ 205 total'
+        description: 'Brasileiro: R$ 105 (ingresso) + R$ 100 (transporte) = R$ 205 total'
       },
       duration: '4 horas',
       image: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
@@ -44,13 +38,46 @@ const IngressosPage = () => {
       description: 'Uma imersão impressionante do lado argentino: passarelas no meio das quedas, vista privilegiada da Garganta do Diabo argentina e o poder da água em toda sua extensão.',
       highlight: 'Proximidade única com as quedas',
       prices: {
-        ticket: 250,
-        transport: 450,
-        total: 700,
         description: 'Ingresso ~R$ 250 + Transporte R$ 450 = R$ 700 total'
       },
       duration: '6 horas',
       image: 'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'parque-aves',
+      title: 'Parque das Aves',
+      icon: '🦜',
+      description: 'Encontro mágico com mais de 400 espécies de aves em viveiros gigantes. Tenha araras pousando em seus ombros e conheça o maior santuário de aves da América Latina.',
+      highlight: 'Experiência única com aves resgatadas',
+      prices: {
+        description: 'Ingresso + Transporte: R$ 90 (Redondinho)'
+      },
+      duration: '2-3 horas',
+      image: 'https://images.unsplash.com/photo-1501286353178-1ec881214838?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'itaipu-tours',
+      title: 'Itaipu - Todos os Tours',
+      icon: '⚡',
+      description: 'Explore a maior usina hidrelétrica do Brasil com diversos tours especializados, desde o panorâmico até experiências exclusivas na usina.',
+      highlight: 'Maravilha da engenharia moderna',
+      prices: {
+        description: 'Panorâmico R$ 58 | Especial R$ 165 | Refúgio R$ 42 | Iluminada R$ 48 | Iluminada Especial R$ 170 | By Bike R$ 53'
+      },
+      duration: '2-4 horas',
+      image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'wonder-park',
+      title: 'Wonder Park',
+      icon: '🎢',
+      description: 'Parque temático noturno com atrações emocionantes, restaurantes e entretenimento para toda a família. Uma experiência única que funciona até as 22h.',
+      highlight: 'Diversão garantida para toda família',
+      prices: {
+        description: 'Passaporte Combo: R$ 150 (adulto) | R$ 120 (criança > 5 anos)'
+      },
+      duration: '3 horas',
+      image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'marco-fronteiras',
@@ -59,15 +86,22 @@ const IngressosPage = () => {
       description: 'Do mirante das fronteiras, contemple o encontro dos rios e países num pôr do sol inesquecível. Depois, suba na Roda Gigante e veja Foz sob uma nova perspectiva.',
       highlight: 'Encontro histórico dos três países',
       prices: {
-        marcoAdult: 55,
-        marcoHalf: 29,
-        rodaGigante: 80,
-        transport: 80,
-        total: 135,
-        description: 'Marco R$ 55 + Roda Gigante R$ 80 = R$ 135 (sem transporte)'
+        description: 'Marco R$ 55 + Roda Gigante R$ 80 + Transporte R$ 80 = R$ 215 total'
       },
       duration: '3 horas',
       image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'paraguai-compras',
+      title: 'Paraguai - Compras',
+      icon: '🛍️',
+      description: 'Aventura de compras em Ciudad del Este com 6 horas incluídas para explorar as melhores lojas. Tempo extra disponível por R$ 50/hora.',
+      highlight: 'Paraíso das compras na América do Sul',
+      prices: {
+        description: 'Transporte + 6h incluídas | R$ 50 por hora extra'
+      },
+      duration: '6+ horas',
+      image: 'https://images.unsplash.com/photo-1441057206919-63d19fac2369?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     }
   ];
 
@@ -78,7 +112,7 @@ ${attraction.prices.description}
 
 Pode me ajudar com os detalhes?`;
     
-    const whatsappNumber = "5545999999999";
+    const whatsappNumber = "5545999096511";
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
@@ -151,24 +185,12 @@ Pode me ajudar com os detalhes?`;
                   {/* Pricing */}
                   <div className="bg-gradient-to-r from-verde-floresta/5 to-azul-cataratas/5 rounded-lg p-4 mb-6">
                     <h4 className="font-montserrat font-semibold text-verde-floresta mb-2 flex items-center gap-2">
-                      💰 Preços
+                      <Ticket size={20} />
+                      Preços
                     </h4>
-                    <p className="font-lora text-cinza-pedra">
+                    <p className="font-lora text-cinza-pedra text-sm leading-relaxed">
                       {attraction.prices.description}
                     </p>
-                    
-                    {attraction.id === 'cataratas-brasil' && (
-                      <div className="mt-2 text-sm text-cinza-pedra">
-                        <p>• Estrangeiro: R$ 116 + Transporte = R$ 216 total</p>
-                      </div>
-                    )}
-                    
-                    {attraction.id === 'marco-fronteiras' && (
-                      <div className="mt-2 text-sm text-cinza-pedra">
-                        <p>• Meia entrada Marco: R$ 29</p>
-                        <p>• Transporte separado: R$ 80</p>
-                      </div>
-                    )}
                   </div>
 
                   {/* Features */}
@@ -233,7 +255,7 @@ Pode me ajudar com os detalhes?`;
                 <button
                   onClick={() => {
                     const message = "Olá! Gostaria de montar um roteiro personalizado em Foz do Iguaçu. Podem me ajudar?";
-                    const whatsappNumber = "5545999999999";
+                    const whatsappNumber = "5545999096511";
                     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                     window.open(url, '_blank');
                   }}

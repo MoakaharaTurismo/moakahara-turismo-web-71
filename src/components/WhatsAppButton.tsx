@@ -2,7 +2,7 @@
 import React from 'react';
 
 const WhatsAppButton = () => {
-  const whatsappNumber = "5545999999999"; // Número da Moakãhára Turismo
+  const whatsappNumber = "5545999096511"; // Número atualizado da Moakãhára Turismo
   const message = "Olá! Gostaria de saber mais sobre os passeios da Moakãhára Turismo.";
   
   const handleWhatsAppClick = () => {
