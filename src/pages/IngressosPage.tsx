@@ -4,16 +4,16 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
 import PricingTable from '../components/PricingTable';
-import { MapPin, Clock, Users, Star, AlertTriangle, Ticket, Heart } from 'lucide-react';
+import { MapPin, Clock, Users, Star, AlertTriangle, Ticket, Heart, ExternalLink } from 'lucide-react';
 
 const IngressosPage = () => {
   const attractions = [
     {
       id: 'city-tour',
-      title: 'City Tour Foz do Iguaçu',
-      icon: '🎟️',
-      description: 'Um mergulho na história e cultura locais: comece na majestosa Itaipu, respire a serenidade do Templo Budista, saboreie um almoço delicioso no Barracão, explore a Catedral de Guadalupe, visualize a beleza arquitetônica da Mesquita e finalize com um passeio pelas vibrantes avenidas da cidade.',
-      highlight: 'Um dia inesquecível pelas raízes e alma de Foz',
+      title: 'City Tour Foz do Iguaçu Completo',
+      icon: '🏛️',
+      description: 'Roteiro completo pela história e cultura de Foz: Usina de Itaipu (vista externa), Templo Budista, Restaurante Barracão, Catedral de Nossa Senhora de Guadalupe, Mesquita Árabe, Avenida Pedro Basso, avenidas centrais, quartel militar, Avenida Brasil (centro histórico). Integração com Roda-Gigante e Marco das Três Fronteiras.',
+      highlight: 'Um mergulho completo na alma de Foz do Iguaçu',
       prices: {
         description: 'R$ 350 (até 4 pessoas) ou R$ 200 (2 pessoas)'
       },
@@ -24,82 +24,85 @@ const IngressosPage = () => {
       id: 'cataratas-brasil',
       title: 'Cataratas do Iguaçu – Brasil',
       icon: '🏞️',
-      description: 'Sinta a grandiosidade da natureza na Garganta do Diabo e em trilhas envolventes por passarelas molhadas — um espetáculo da UNESCO que emociona todos os sentidos.',
+      description: 'Parque Nacional do Iguaçu com suas trilhas, pontes e mirantes. Vista panorâmica impressionante da Garganta do Diabo e passarelas que proporcionam experiência única com as quedas d\'água. Patrimônio Mundial da UNESCO.',
       highlight: 'Vista panorâmica das quedas mais famosas do mundo',
       prices: {
-        description: 'Ingresso: R$ 105 (Brasileiro/Mercosul) ou R$ 116 (Estrangeiro) + Transporte: R$ 100 → Total: ~R$ 205'
+        description: 'Ingresso: R$ 105 (Brasileiro) ou R$ 117 (Estrangeiro) + Transporte: R$ 100'
       },
       duration: '4 horas',
-      image: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      linkOficial: 'https://cataratasdoiguacu.com.br/'
     },
     {
       id: 'cataratas-argentina',
       title: 'Cataratas do Iguaçu – Argentina',
       icon: '🌊',
-      description: 'Uma imersão impressionante do lado argentino: passarelas no meio das quedas, vista privilegiada da Garganta do Diabo argentina e o poder da água em toda sua extensão.',
-      highlight: 'Proximidade única com as quedas',
+      description: 'Lado argentino com proximidade única às quedas. Trilhas do Circuito Superior e Inferior, Garganta do Diabo argentina, e a experiência de estar no meio das cataratas. Inclui feirinha argentina para compras e gastronomia.',
+      highlight: 'Proximidade única e inesquecível com as quedas',
       prices: {
-        description: 'Ingresso: ~P$ 45.000 (≈R$ 250) + Transporte: R$ 450 → Total: ~R$ 700'
+        description: 'Pacote completo: R$ 700 (inclui feirinha argentina)'
       },
-      duration: '6 horas',
+      duration: '6-8 horas',
       image: 'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-    },
-    {
-      id: 'marco-fronteiras',
-      title: 'Marco das Três Fronteiras + Roda Gigante',
-      icon: '🇵🇾',
-      description: 'Do mirante das fronteiras, contemple o encontro dos rios e países num pôr do sol inesquecível. Depois, suba na Roda Gigante e veja Foz sob uma nova perspectiva.',
-      highlight: 'Encontro histórico dos três países',
-      prices: {
-        description: 'Marco: R$ 55 (adulto) / R$ 29 (meia) + Roda Gigante: R$ 80 + Transporte: R$ 80 → Total: ~R$ 215'
-      },
-      duration: '3 horas',
-      image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'parque-aves',
       title: 'Parque das Aves',
       icon: '🦜',
-      description: 'Encontro mágico com mais de 400 espécies de aves em viveiros gigantes. Tenha araras pousando em seus ombros e conheça o maior santuário de aves da América Latina.',
-      highlight: 'Experiência única com aves resgatadas',
+      description: 'Encontro mágico com mais de 400 espécies: araras coloridas, tucanos exuberantes, e até mesmo a majestosa onça-pintada. Viveiros imensos onde você caminha entre as aves em seu habitat natural. Experiência única de interação com a fauna.',
+      highlight: 'Experiência única com aves e fauna resgatadas',
       prices: {
-        description: 'Ingresso + Transporte: R$ 90 (Redondinho)'
+        description: 'Ingresso: R$ 90 + Transporte: R$ 100 = R$ 190'
       },
       duration: '2-3 horas',
-      image: 'https://images.unsplash.com/photo-1501286353178-1ec881214838?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1501286353178-1ec881214838?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      linkOficial: 'https://www.parquedasaves.com.br/'
     },
     {
       id: 'itaipu-tours',
-      title: 'Itaipu - Todos os Tours',
+      title: 'Usina de Itaipu - Tours Especializados',
       icon: '⚡',
-      description: 'Explore a maior usina hidrelétrica do Brasil com diversos tours especializados, desde o panorâmico até experiências exclusivas na usina.',
-      highlight: 'Maravilha da engenharia moderna',
+      description: 'Explore a maior usina hidrelétrica do Brasil com tours especializados: Panorâmico, Ecomuseu, Refúgio Biológico. Conheça o reservatório, a tecnologia impressionante e a importância ambiental desta maravilha da engenharia.',
+      highlight: 'Maravilha da engenharia moderna brasileira',
       prices: {
-        description: 'Panorâmico R$ 58 | Especial R$ 165 | Refúgio R$ 42 | Iluminada R$ 48 | Iluminada Especial R$ 170 | By Bike R$ 53'
+        description: 'Tours variados + Transporte: R$ 100 (desconto se comprar ingresso lá)'
       },
       duration: '2-4 horas',
-      image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      linkOficial: 'https://www.turismoitaipu.com.br/'
     },
     {
-      id: 'wonder-park',
-      title: 'Wonder Park',
-      icon: '🎢',
-      description: 'Parque temático noturno com atrações emocionantes, restaurantes e entretenimento para toda a família. Uma experiência única que funciona até as 22h.',
-      highlight: 'Diversão garantida para toda família',
+      id: 'marco-fronteiras',
+      title: 'Marco das Três Fronteiras + Roda-Gigante',
+      icon: '🎡',
+      description: 'Ponto histórico onde Brasil, Argentina e Paraguai se encontram. Vista espetacular do encontro dos rios e países. A Roda-Gigante do Vale das Cataratas oferece perspectiva única da região com vista panorâmica de 360°.',
+      highlight: 'Encontro histórico dos três países',
       prices: {
-        description: 'Passaporte Combo: R$ 150 (adulto) | R$ 120 (criança > 5 anos)'
+        description: 'Marco + Roda-Gigante: R$ 215 (transporte incluído)'
       },
       duration: '3 horas',
       image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      id: 'paraguai-compras',
-      title: 'Paraguai - Compras',
-      icon: '🛍️',
-      description: 'Aventura de compras em Ciudad del Este com 6 horas incluídas para explorar as melhores lojas. Tempo extra disponível por R$ 50/hora.',
-      highlight: 'Paraíso das compras na América do Sul',
+      id: 'kattamaram',
+      title: 'Kattamaram II - Rio Paraná',
+      icon: '⛵',
+      description: 'Navegação exclusiva no Rio Paraná a bordo do Kattamaram II. Vista única da região a partir das águas, com perspectiva diferenciada das fronteiras e da natureza exuberante da região.',
+      highlight: 'Navegação única no Rio Paraná',
       prices: {
-        description: 'Transporte + 6h incluídas | R$ 50 por hora extra'
+        description: 'R$ 220-280 + Transporte R$ 85 = R$ 305-365'
+      },
+      duration: '3-4 horas',
+      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'paraguai-compras',
+      title: 'Ciudad del Este - Compras & Cultura',
+      icon: '🛍️',
+      description: 'Duas opções: Compras com acompanhante (R$ 250) ou City Tour cultural com guia explicativo (R$ 350). Explore feirinhas gastronômicas locais, cultura paraguaia autêntica e as melhores oportunidades de compras da América do Sul.',
+      highlight: 'Paraíso das compras e cultura paraguaia',
+      prices: {
+        description: 'Compras: R$ 250 | City Tour: R$ 350 (6h incluídas)'
       },
       duration: '6+ horas',
       image: 'https://images.unsplash.com/photo-1441057206919-63d19fac2369?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
@@ -107,15 +110,21 @@ const IngressosPage = () => {
   ];
 
   const handleWhatsAppContact = (attraction: any) => {
-    const message = `Olá! Gostaria de mais informações sobre o passeio: ${attraction.title}
+    const message = `Olá! Gostaria de mais informações sobre: ${attraction.title}
 
 ${attraction.prices.description}
 
-Pode me ajudar com os detalhes?`;
+Pode me ajudar com os detalhes e disponibilidade?`;
     
     const whatsappNumber = "5545999096511";
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
+  };
+
+  const handleComprarOficial = (attraction: any) => {
+    if (attraction.linkOficial) {
+      window.open(attraction.linkOficial, '_blank');
+    }
   };
 
   return (
@@ -136,7 +145,7 @@ Pode me ajudar com os detalhes?`;
             Ingressos & Experiências
           </h1>
           <p className="font-lora text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Descubra cada passeio com preços transparentes e viva experiências únicas 
+            Descubra cada passeio com preços transparentes, links oficiais e viva experiências únicas 
             em Foz do Iguaçu que ficarão para sempre na memória.
           </p>
         </div>
@@ -176,7 +185,7 @@ Pode me ajudar com os detalhes?`;
             </h2>
             <p className="font-lora text-lg text-cinza-pedra max-w-3xl mx-auto">
               Compare preços e veja como economizar com nossos pacotes. 
-              <strong> Melhor preço garantido da região!</strong>
+              <strong> Links oficiais incluídos e melhor preço garantido!</strong>
             </p>
           </div>
           <PricingTable />
@@ -187,7 +196,7 @@ Pode me ajudar com os detalhes?`;
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-verde-floresta mb-12 text-center">
-            🎯 Experiências Imperdíveis
+            🎯 Experiências com Fotos Reais de Alta Qualidade
           </h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {attractions.map((attraction, index) => (
@@ -254,13 +263,24 @@ Pode me ajudar com os detalhes?`;
                     </span>
                   </div>
 
-                  {/* CTA Button */}
-                  <button
-                    onClick={() => handleWhatsAppContact(attraction)}
-                    className="w-full bg-verde-floresta hover:bg-azul-cataratas text-white py-3 rounded-lg font-montserrat font-semibold transition-all duration-300 transform hover:scale-105"
-                  >
-                    🚀 Reservar Agora
-                  </button>
+                  {/* CTA Buttons */}
+                  <div className="space-y-2">
+                    {attraction.linkOficial && (
+                      <button
+                        onClick={() => handleComprarOficial(attraction)}
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-montserrat font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <ExternalLink size={16} />
+                        Comprar Ingresso Oficial
+                      </button>
+                    )}
+                    <button
+                      onClick={() => handleWhatsAppContact(attraction)}
+                      className="w-full bg-verde-floresta hover:bg-azul-cataratas text-white py-3 rounded-lg font-montserrat font-semibold transition-all duration-300 transform hover:scale-105"
+                    >
+                      🚀 Reservar Transporte + Ingresso
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -278,7 +298,7 @@ Pode me ajudar com os detalhes?`;
               <p className="font-lora text-cinza-pedra leading-relaxed">
                 ⚠️ Os preços são atualizados regularmente, mas podem variar conforme alta temporada, 
                 mudanças nas taxas dos parques ou impostos governamentais. 
-                <strong> Consulte as condições atualizadas no momento da compra.</strong>
+                <strong> Links oficiais incluídos para garantir autenticidade.</strong>
               </p>
               <div className="mt-4 text-sm text-cinza-pedra">
                 <p>💡 <strong>Dica:</strong> Reserve com antecedência para garantir disponibilidade e melhores preços!</p>
@@ -294,12 +314,12 @@ Pode me ajudar com os detalhes?`;
               </h3>
               <p className="font-lora text-lg mb-6 opacity-90 max-w-2xl mx-auto">
                 Entre em contato conosco e monte seu roteiro personalizado. 
-                Temos pacotes especiais e descontos para grupos!
+                Temos pacotes especiais, links oficiais e descontos para grupos!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() => {
-                    const message = "Olá! Gostaria de montar um roteiro personalizado em Foz do Iguaçu. Podem me ajudar?";
+                    const message = "Olá! Gostaria de montar um roteiro personalizado em Foz do Iguaçu com base nas experiências do site. Podem me ajudar?";
                     const whatsappNumber = "5545999096511";
                     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                     window.open(url, '_blank');
