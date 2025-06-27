@@ -85,7 +85,7 @@ const ToursSection = () => {
       precoOriginal: 'R$ 400',
       desconto: '12% OFF',
       duracao: '5-7 horas',
-      inclui: 'Transporte + Guia + Almoço',
+      inclui: 'Transporte + Guia + Almoço + Parada para almoço',
       destaque: true
     }
   ];
