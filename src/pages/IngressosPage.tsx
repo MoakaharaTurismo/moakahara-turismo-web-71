@@ -3,7 +3,8 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
-import { MapPin, Clock, Users, Star, AlertTriangle, Ticket } from 'lucide-react';
+import PricingTable from '../components/PricingTable';
+import { MapPin, Clock, Users, Star, AlertTriangle, Ticket, Heart } from 'lucide-react';
 
 const IngressosPage = () => {
   const attractions = [
@@ -141,9 +142,53 @@ Pode me ajudar com os detalhes?`;
         </div>
       </section>
 
+      {/* Nossa História - Vinicius */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <Heart className="text-red-500" size={32} />
+              <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-verde-floresta">
+                Nossa História
+              </h2>
+            </div>
+            <div className="bg-gradient-to-r from-verde-floresta/5 to-azul-cataratas/5 rounded-2xl p-8">
+              <p className="font-lora text-lg text-cinza-pedra leading-relaxed mb-6">
+                A <strong>Moakãhára Turismo</strong> é o sonho realizado de <strong>Vinicius Gavioli</strong>, 
+                um profundo conhecedor e apaixonado pela região de Foz do Iguaçu, Puerto Iguazú e Ciudad del Este.
+              </p>
+              <p className="font-lora text-lg text-cinza-pedra leading-relaxed">
+                Embora não tenha sido fundada por guias, hoje a agência conta com uma 
+                <strong> rede de amigos-guia</strong> que oferecem informações genuínas, 
+                revelando segredos e experiências que dão verdadeiro significado à sua viagem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tabela de Preços */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-verde-floresta mb-6">
+              💰 Tabela Completa de Preços
+            </h2>
+            <p className="font-lora text-lg text-cinza-pedra max-w-3xl mx-auto">
+              Compare preços e veja como economizar com nossos pacotes. 
+              <strong> Melhor preço garantido da região!</strong>
+            </p>
+          </div>
+          <PricingTable />
+        </div>
+      </section>
+
       {/* Attractions Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
+          <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-verde-floresta mb-12 text-center">
+            🎯 Experiências Imperdíveis
+          </h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {attractions.map((attraction, index) => (
               <div 
@@ -214,7 +259,7 @@ Pode me ajudar com os detalhes?`;
                     onClick={() => handleWhatsAppContact(attraction)}
                     className="w-full bg-verde-floresta hover:bg-azul-cataratas text-white py-3 rounded-lg font-montserrat font-semibold transition-all duration-300 transform hover:scale-105"
                   >
-                    Reservar Agora
+                    🚀 Reservar Agora
                   </button>
                 </div>
               </div>
@@ -261,13 +306,13 @@ Pode me ajudar com os detalhes?`;
                   }}
                   className="bg-white text-verde-floresta px-8 py-3 rounded-full font-montserrat font-semibold hover:bg-branco-gelo transition-all duration-300 transform hover:scale-105"
                 >
-                  Falar no WhatsApp
+                  💬 Falar no WhatsApp
                 </button>
                 <a
                   href="/combo"
                   className="border-2 border-white text-white px-8 py-3 rounded-full font-montserrat font-semibold hover:bg-white hover:text-verde-floresta transition-all duration-300 transform hover:scale-105"
                 >
-                  Monte seu Combo
+                  🔥 Monte seu Combo
                 </a>
               </div>
             </div>
