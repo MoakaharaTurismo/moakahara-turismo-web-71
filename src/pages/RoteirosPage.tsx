@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
-import { Clock, MapPin, Plus, Minus, AlertTriangle, CheckCircle } from 'lucide-react';
+import { Clock, MapPin, Plus, Minus, AlertTriangle, CheckCircle, Calendar } from 'lucide-react';
 
 const RoteirosPage = () => {
   const [selectedDay, setSelectedDay] = useState(1);
@@ -17,12 +17,22 @@ const RoteirosPage = () => {
 
   const passeios = [
     {
-      id: 'cataratas-brasil',
-      nome: 'Cataratas + Parque das Aves (Brasil)',
-      duracao: 5.5,
-      descricao: 'Parque das Aves (2h30) + Cataratas (2h30) + deslocamentos',
-      horario: '8h00 - 13h30',
-      categoria: 'natureza'
+      id: 'cataratas-parque-aves',
+      nome: 'Cataratas + Parque das Aves',
+      duracao: 5,
+      descricao: 'Parque das Aves (2h30) + Cataratas Brasil (2h30)',
+      horario: '8h00 - 13h00',
+      categoria: 'natureza',
+      sugestao: 'Dia 1'
+    },
+    {
+      id: 'macuco-safari',
+      nome: 'Macuco Safari',
+      duracao: 2.5,
+      descricao: 'Aventura até a base das Cataratas',
+      horario: '9h00 - 16h00 (flexível)',
+      categoria: 'aventura',
+      sugestao: 'Dia 1'
     },
     {
       id: 'helicoptero',
@@ -30,31 +40,26 @@ const RoteirosPage = () => {
       duracao: 1.5,
       descricao: 'Voo panorâmico sobre as Cataratas',
       horario: '9h00 - 17h00 (flexível)',
-      categoria: 'aventura'
+      categoria: 'aventura',
+      sugestao: 'Dia 2'
     },
     {
       id: 'wonder-park',
       nome: 'Wonder Park (Noturno)',
       duracao: 2.5,
-      descricao: 'Parque temático noturno - aberto até 22h',
-      horario: '19h00 - 22h00',
-      categoria: 'entretenimento'
+      descricao: 'Parque temático - aberto até 22h',
+      horario: '19h30 - 22h00',
+      categoria: 'entretenimento',
+      sugestao: 'Dia 2'
     },
     {
       id: 'feirinha-argentina',
       nome: 'Feirinha Argentina',
       duracao: 4,
       descricao: 'Compras e gastronomia argentina',
-      horario: '17h30 - 00h00',
-      categoria: 'compras'
-    },
-    {
-      id: 'marco-show',
-      nome: 'Marco das 3 Fronteiras (Show)',
-      duracao: 2.2,
-      descricao: 'Show no Marco das Três Fronteiras',
-      horario: '18h20 - 20h30',
-      categoria: 'cultura'
+      horario: '17h30 - 21h30',
+      categoria: 'compras',
+      sugestao: 'Dia 2'
     },
     {
       id: 'roda-gigante',
@@ -62,23 +67,35 @@ const RoteirosPage = () => {
       duracao: 1.5,
       descricao: 'Vista panorâmica da cidade',
       horario: '14h00 - 22h00',
-      categoria: 'entretenimento'
+      categoria: 'entretenimento',
+      sugestao: 'Dia 3'
+    },
+    {
+      id: 'marco-show',
+      nome: 'Show do Marco das 3 Fronteiras',
+      duracao: 2.2,
+      descricao: 'Show no Marco das Três Fronteiras',
+      horario: '18h20 - 20h30',
+      categoria: 'cultura',
+      sugestao: 'Dia 3'
     },
     {
       id: 'city-tour',
       nome: 'City Tour',
       duracao: 6,
       descricao: 'Itaipu, Templo Budista, Mesquita, Catedral',
-      horario: '8h00 - 17h00',
-      categoria: 'cultura'
+      horario: '8h00 - 15h00',
+      categoria: 'cultura',
+      sugestao: 'Dia 4'
     },
     {
       id: 'paraguai',
       nome: 'Paraguai (Compras)',
       duracao: 6,
-      descricao: 'Ciudad del Este - 6h incluídas, R$50/h extra',
+      descricao: 'Ciudad del Este - 6h incluídas, +R$50/h extra',
       horario: '8h00 - 17h00',
-      categoria: 'compras'
+      categoria: 'compras',
+      sugestao: 'Dia 5'
     },
     {
       id: 'cataratas-argentina',
@@ -86,15 +103,8 @@ const RoteirosPage = () => {
       duracao: 8,
       descricao: 'Lado argentino das Cataratas',
       horario: '7h00 - 18h00',
-      categoria: 'natureza'
-    },
-    {
-      id: 'macuco-safari',
-      nome: 'Macuco Safari',
-      duracao: 2.5,
-      descricao: 'Aventura até a base das Cataratas',
-      horario: '9h00 - 16h00',
-      categoria: 'aventura'
+      categoria: 'natureza',
+      sugestao: 'Adicional'
     }
   ];
 
@@ -131,6 +141,9 @@ const RoteirosPage = () => {
         if (passeio1.id === 'feirinha-argentina' && passeio2.id === 'marco-show') {
           conflitos.push('Feirinha Argentina e Marco Show têm horários conflitantes');
         }
+        if (passeio1.id === 'city-tour' && passeio2.duracao > 3) {
+          conflitos.push('City Tour é muito longo para combinar com outras atividades extensas');
+        }
       }
     }
     
@@ -149,9 +162,9 @@ const RoteirosPage = () => {
       if (roteiro[dia].length > 0) {
         mensagem += `*Dia ${dia}:*\n`;
         roteiro[dia].forEach(passeio => {
-          mensagem += `• ${passeio.nome}\n`;
+          mensagem += `• ${passeio.nome} (${passeio.duracao}h)\n`;
         });
-        mensagem += `\n`;
+        mensagem += `Total: ${calcularDuracaoTotal(dia)}h\n\n`;
       }
     });
     
@@ -160,6 +173,23 @@ const RoteirosPage = () => {
     const whatsappNumber = "5545999096511";
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
+  };
+
+  const roteirosPreDefinidos = [
+    {
+      nome: "Roteiro Clássico 5 dias",
+      dias: {
+        1: [passeios[0], passeios[1]], // Cataratas + Parque + Macuco
+        2: [passeios[2], passeios[3]], // Helicóptero + Wonder Park
+        3: [passeios[5], passeios[6]], // Roda Gigante + Marco Show
+        4: [passeios[7]], // City Tour
+        5: [passeios[8]]  // Paraguai
+      }
+    }
+  ];
+
+  const aplicarRoteiroPreDefinido = (roteiroPre) => {
+    setRoteiro(roteiroPre.dias);
   };
 
   return (
@@ -182,12 +212,43 @@ const RoteirosPage = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-4">
+          
+          {/* Roteiros Pré-definidos */}
+          <div className="mb-12">
+            <h3 className="font-montserrat text-2xl font-bold text-verde-floresta mb-6">
+              Roteiros Sugeridos
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {roteirosPreDefinidos.map((roteiroPreDefinido, index) => (
+                <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
+                  <h4 className="font-montserrat text-xl font-bold text-verde-floresta mb-4">
+                    {roteiroPreDefinido.nome}
+                  </h4>
+                  <div className="space-y-2 mb-4">
+                    {Object.keys(roteiroPreDefinido.dias).map(dia => (
+                      <div key={dia} className="text-sm">
+                        <strong>Dia {dia}:</strong> {roteiroPreDefinido.dias[dia].map(p => p.nome).join(', ')}
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => aplicarRoteiroPreDefinido(roteiroPreDefinido)}
+                    className="bg-verde-floresta text-white px-4 py-2 rounded font-montserrat hover:bg-azul-cataratas transition-all"
+                  >
+                    Aplicar Roteiro
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="grid lg:grid-cols-3 gap-8">
             
             {/* Seletor de Dias */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-2xl p-6 shadow-sm sticky top-24">
-                <h3 className="font-montserrat text-2xl font-bold text-verde-floresta mb-6">
+                <h3 className="font-montserrat text-2xl font-bold text-verde-floresta mb-6 flex items-center gap-2">
+                  <Calendar size={24} />
                   Selecione o Dia
                 </h3>
                 <div className="space-y-3">
@@ -221,9 +282,12 @@ const RoteirosPage = () => {
                     <p className="text-cinza-pedra font-lora">Nenhuma atividade adicionada</p>
                   ) : (
                     <div className="space-y-2">
-                      {roteiro[selectedDay].map(passeio => (
-                        <div key={passeio.id} className="flex justify-between items-center bg-branco-gelo p-2 rounded">
-                          <span className="text-sm font-lora">{passeio.nome}</span>
+                      {roteiro[selectedDay].map((passeio, index) => (
+                        <div key={index} className="flex justify-between items-center bg-branco-gelo p-2 rounded">
+                          <div>
+                            <span className="text-sm font-lora font-semibold">{passeio.nome}</span>
+                            <div className="text-xs text-cinza-pedra">{passeio.horario}</div>
+                          </div>
                           <button
                             onClick={() => removerPasseio(passeio.id)}
                             className="text-red-500 hover:text-red-700"
@@ -256,6 +320,21 @@ const RoteirosPage = () => {
               <h3 className="font-montserrat text-2xl font-bold text-verde-floresta mb-6">
                 Passeios Disponíveis
               </h3>
+              
+              {/* Filtro por sugestão */}
+              <div className="mb-6">
+                <div className="flex flex-wrap gap-2">
+                  {['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Adicional'].map(sugestao => (
+                    <span 
+                      key={sugestao} 
+                      className="bg-verde-floresta/10 text-verde-floresta px-3 py-1 rounded-full text-sm font-montserrat"
+                    >
+                      {sugestao}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
               <div className="grid gap-4">
                 {passeios.map(passeio => {
                   const jaAdicionado = roteiro[selectedDay].some(p => p.id === passeio.id);
@@ -264,9 +343,14 @@ const RoteirosPage = () => {
                     <div key={passeio.id} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-all duration-300">
                       <div className="flex justify-between items-start mb-4">
                         <div className="flex-1">
-                          <h4 className="font-montserrat text-xl font-bold text-verde-floresta mb-2">
-                            {passeio.nome}
-                          </h4>
+                          <div className="flex items-center gap-2 mb-2">
+                            <h4 className="font-montserrat text-xl font-bold text-verde-floresta">
+                              {passeio.nome}
+                            </h4>
+                            <span className="bg-ocre-terra/20 text-ocre-terra px-2 py-1 rounded text-xs font-montserrat">
+                              {passeio.sugestao}
+                            </span>
+                          </div>
                           <p className="font-lora text-cinza-pedra mb-2">{passeio.descricao}</p>
                           <div className="flex flex-wrap gap-4 text-sm">
                             <div className="flex items-center gap-1">

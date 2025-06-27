@@ -12,45 +12,48 @@ const ComboPage = () => {
     {
       id: 'city-tour',
       name: 'City Tour Foz do Iguaçu',
-      description: 'Itaipu, Templo Budista, almoço no Barracão, Catedral Guadalupe, Mesquita e tour pelas principais avenidas',
+      description: 'Itaipu → Templo Budista → almoço no Barracão → Catedral Guadalupe → Mesquita → tour pelas avenidas principais',
       price: 350,
       priceFor2: 200,
-      icon: '🏛️',
-      duration: '8 horas',
+      icon: '🎟️',
+      duration: '5-7 horas',
       groupSize: 'Até 4 pessoas'
     },
     {
       id: 'cataratas-brasil',
       name: 'Cataratas do Iguaçu – Brasil',
-      description: 'Transporte ida e volta para as majestosas Cataratas do lado brasileiro',
-      price: 100,
-      icon: '🇧🇷',
+      description: 'Transporte ida e volta + ingresso',
+      price: 205,
+      details: 'R$ 105 (ingresso) + R$ 100 (transporte)',
+      icon: '🏞️',
       duration: '4 horas',
       groupSize: 'Por pessoa'
     },
     {
       id: 'cataratas-argentina',
       name: 'Cataratas do Iguaçu – Argentina',
-      description: 'Transporte ida e volta para explorar as trilhas argentinas das Cataratas',
-      price: 450,
-      icon: '🇦🇷',
+      description: 'Transporte ida e volta + ingresso',
+      price: 700,
+      details: 'R$ 250 (ingresso) + R$ 450 (transporte)',
+      icon: '🌊',
       duration: '6 horas',
       groupSize: 'Por pessoa'
     },
     {
       id: 'paraguai',
       name: 'Compras no Paraguai',
-      description: 'Transporte ida e volta para Ciudad del Este',
+      description: 'Transporte ida e volta (6h incluídas; +R$50/h extra)',
       price: 250,
       icon: '🇵🇾',
-      duration: '6 horas',
+      duration: '6+ horas',
       groupSize: 'Por pessoa'
     },
     {
       id: 'marco-fronteiras',
       name: 'Marco das Três Fronteiras + Roda Gigante',
-      description: 'Transporte ida e volta para o ponto de encontro dos três países',
-      price: 80,
+      description: 'Transporte + ingressos para Marco e Roda Gigante',
+      price: 215,
+      details: 'Marco R$ 55 + Roda R$ 80 + Transporte R$ 80',
       icon: '🎡',
       duration: '3 horas',
       groupSize: 'Por pessoa'
@@ -125,7 +128,7 @@ Valor total: R$ ${total.toFixed(2).replace('.', ',')}
 
 Gostaria de mais informações!`;
     
-    const whatsappNumber = "5545999999999";
+    const whatsappNumber = "5545999096511";
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
@@ -169,9 +172,15 @@ Gostaria de mais informações!`;
                           </h3>
                         </div>
                         
-                        <p className="font-lora text-cinza-pedra mb-4">
+                        <p className="font-lora text-cinza-pedra mb-2">
                           {tour.description}
                         </p>
+
+                        {tour.details && (
+                          <p className="font-montserrat text-sm text-ocre-terra mb-4">
+                            {tour.details}
+                          </p>
+                        )}
                         
                         <div className="flex flex-wrap gap-4 text-sm text-cinza-pedra">
                           <div className="flex items-center gap-1">
@@ -241,7 +250,23 @@ Gostaria de mais informações!`;
                   </div>
                 </div>
 
-                {/* Discount Info */}
+                {/* Discount Rules */}
+                <div className="mb-6 space-y-2">
+                  <div className={`flex justify-between items-center p-2 rounded ${getTotalDays() === 1 ? 'bg-ocre-terra/10' : 'bg-gray-50'}`}>
+                    <span className="font-lora text-sm">1 dia</span>
+                    <span className="font-bold text-sm">0% OFF</span>
+                  </div>
+                  <div className={`flex justify-between items-center p-2 rounded ${getTotalDays() === 2 ? 'bg-verde-floresta/10' : 'bg-gray-50'}`}>
+                    <span className="font-lora text-sm">2 dias</span>
+                    <span className="font-bold text-sm">10% OFF</span>
+                  </div>
+                  <div className={`flex justify-between items-center p-2 rounded ${getTotalDays() >= 3 ? 'bg-azul-cataratas/10' : 'bg-gray-50'}`}>
+                    <span className="font-lora text-sm">3+ dias</span>
+                    <span className="font-bold text-sm">30% OFF</span>
+                  </div>
+                </div>
+
+                {/* Current Discount */}
                 <div className="mb-6">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-lora">Desconto aplicado:</span>

@@ -26,7 +26,7 @@ const IngressosPage = () => {
       description: 'Sinta a grandiosidade da natureza na Garganta do Diabo e em trilhas envolventes por passarelas molhadas — um espetáculo da UNESCO que emociona todos os sentidos.',
       highlight: 'Vista panorâmica das quedas mais famosas do mundo',
       prices: {
-        description: 'Brasileiro: R$ 105 (ingresso) + R$ 100 (transporte) = R$ 205 total'
+        description: 'Ingresso: R$ 105 (Brasileiro/Mercosul) ou R$ 116 (Estrangeiro) + Transporte: R$ 100 → Total: ~R$ 205'
       },
       duration: '4 horas',
       image: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
@@ -38,10 +38,22 @@ const IngressosPage = () => {
       description: 'Uma imersão impressionante do lado argentino: passarelas no meio das quedas, vista privilegiada da Garganta do Diabo argentina e o poder da água em toda sua extensão.',
       highlight: 'Proximidade única com as quedas',
       prices: {
-        description: 'Ingresso ~R$ 250 + Transporte R$ 450 = R$ 700 total'
+        description: 'Ingresso: ~P$ 45.000 (≈R$ 250) + Transporte: R$ 450 → Total: ~R$ 700'
       },
       duration: '6 horas',
       image: 'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'marco-fronteiras',
+      title: 'Marco das Três Fronteiras + Roda Gigante',
+      icon: '🇵🇾',
+      description: 'Do mirante das fronteiras, contemple o encontro dos rios e países num pôr do sol inesquecível. Depois, suba na Roda Gigante e veja Foz sob uma nova perspectiva.',
+      highlight: 'Encontro histórico dos três países',
+      prices: {
+        description: 'Marco: R$ 55 (adulto) / R$ 29 (meia) + Roda Gigante: R$ 80 + Transporte: R$ 80 → Total: ~R$ 215'
+      },
+      duration: '3 horas',
+      image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'parque-aves',
@@ -75,18 +87,6 @@ const IngressosPage = () => {
       highlight: 'Diversão garantida para toda família',
       prices: {
         description: 'Passaporte Combo: R$ 150 (adulto) | R$ 120 (criança > 5 anos)'
-      },
-      duration: '3 horas',
-      image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-    },
-    {
-      id: 'marco-fronteiras',
-      title: 'Marco das Três Fronteiras + Roda Gigante',
-      icon: '🇵🇾',
-      description: 'Do mirante das fronteiras, contemple o encontro dos rios e países num pôr do sol inesquecível. Depois, suba na Roda Gigante e veja Foz sob uma nova perspectiva.',
-      highlight: 'Encontro histórico dos três países',
-      prices: {
-        description: 'Marco R$ 55 + Roda Gigante R$ 80 + Transporte R$ 80 = R$ 215 total'
       },
       duration: '3 horas',
       image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'

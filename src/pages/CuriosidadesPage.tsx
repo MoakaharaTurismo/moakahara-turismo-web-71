@@ -9,34 +9,34 @@ const CuriosidadesPage = () => {
   const curiosidades = [
     {
       id: 'templo-budista',
-      titulo: 'Templo Budista Gratuito',
+      titulo: 'Templo Budista Gratuito aos Domingos',
       icon: <Gift className="text-verde-floresta" size={32} />,
       descricao: 'Aos domingos, o Templo Budista Chen Tien abre suas portas gratuitamente para visitantes. É uma oportunidade única de meditar em jardins zen e conhecer a cultura oriental no coração do Brasil.',
-      curiosidade: 'O templo possui mais de 120 estátuas de Buda!',
+      curiosidade: 'O templo possui mais de 120 estátuas de Buda e foi construído sem usar um único prego!',
       cor: 'bg-verde-floresta/10 border-verde-floresta'
     },
     {
       id: 'parque-aves',
-      titulo: 'Reino das Aves',
+      titulo: 'Parque das Aves - Mais de 400 Espécies',
       icon: <Bird className="text-azul-cataratas" size={32} />,
       descricao: 'O Parque das Aves abriga mais de 400 espécies de aves, sendo 50% delas resgatadas de tráfico ilegal. Você pode entrar em viveiros gigantes e ter araras pousando em seus ombros!',
-      curiosidade: 'Algumas araras do parque vivem mais de 80 anos!',
+      curiosidade: 'Algumas araras do parque vivem mais de 80 anos e reconhecem visitantes frequentes!',
       cor: 'bg-azul-cataratas/10 border-azul-cataratas'
     },
     {
       id: 'mesquita-arabe',
-      titulo: 'Mesquita Monumental',
+      titulo: 'Mesquita Árabe - Uma das Maiores da América Latina',
       icon: <Mosque className="text-ocre-terra" size={32} />,
       descricao: 'A Mesquita Omar Ibn Al-Khattab é uma das maiores da América Latina, com capacidade para 1.500 fiéis. Sua arquitetura impressionante inclui minaretes de 35 metros e jardins inspirados no Oriente Médio.',
-      curiosidade: 'Foi construída sem nenhum prego, seguindo técnicas ancestrais!',
+      curiosidade: 'Foi construída seguindo técnicas ancestrais árabes, sem usar pregos na estrutura principal!',
       cor: 'bg-ocre-terra/10 border-ocre-terra'
     },
     {
       id: 'feirinha-argentina',
-      titulo: 'Feirinha Noturna',
+      titulo: 'Feirinha Argentina - Das 17h30 às 00h',
       icon: <ShoppingBag className="text-purple-600" size={32} />,
-      descricao: 'A famosa feirinha argentina começa às 17h30 e funciona até meia-noite. É o lugar perfeito para comprar artesanatos, vinhos e doce de leite autênticos da Argentina.',
-      curiosidade: 'Mais de 500 lojinhas em um só lugar!',
+      descricao: 'A famosa feirinha argentina funciona das 17h30 às 00h, todos os dias! É o lugar perfeito para comprar artesanatos, vinhos e doce de leite autênticos da Argentina.',
+      curiosidade: 'São mais de 500 lojas em um só lugar, e você pode negociar preços em português, espanhol ou guarani!',
       cor: 'bg-purple-100 border-purple-600'
     },
     {
@@ -44,15 +44,15 @@ const CuriosidadesPage = () => {
       titulo: 'Itaipu dos Recordes',
       icon: <Sparkles className="text-yellow-600" size={32} />,
       descricao: 'Itaipu foi a maior usina hidrelétrica do mundo por 14 anos. Para construí-la, foi usado ferro e aço suficiente para construir 380 Torres Eiffel!',
-      curiosidade: 'Gera energia limpa para 15% do Brasil e 95% do Paraguai!',
+      curiosidade: 'Gera energia limpa para 15% do Brasil e 95% do Paraguai - é uma das 7 Maravilhas do Mundo Moderno!',
       cor: 'bg-yellow-100 border-yellow-600'
     },
     {
       id: 'marco-fronteiras',
-      titulo: 'Encontro de Nações',
+      titulo: 'Encontro de Três Nações',
       icon: <MapPin className="text-red-600" size={32} />,
       descricao: 'No Marco das Três Fronteiras, você pode literalmente pisar em três países diferentes! É o único lugar do mundo onde Brasil, Argentina e Paraguai se encontram.',
-      curiosidade: 'Os rios Iguaçu e Paraná se encontram exatamente neste ponto!',
+      curiosidade: 'Os rios Iguaçu e Paraná se encontram exatamente neste ponto, criando um espetáculo natural único!',
       cor: 'bg-red-100 border-red-600'
     },
     {
@@ -60,15 +60,15 @@ const CuriosidadesPage = () => {
       titulo: 'Patrimônio da Humanidade',
       icon: <Users className="text-green-600" size={32} />,
       descricao: 'As Cataratas do Iguaçu são Patrimônio Mundial da UNESCO desde 1986. Com 275 quedas d\'água, são 4 vezes mais largas que as Cataratas do Niágara!',
-      curiosidade: 'Eleanor Roosevelt disse: "Pobres Cataratas do Niágara!"',
+      curiosidade: 'Eleanor Roosevelt disse ao ver as cataratas: "Pobres Cataratas do Niágara!" tamanha era a diferença!',
       cor: 'bg-green-100 border-green-600'
     },
     {
       id: 'diversidade-cultural',
-      titulo: 'Babel Brasileira',
+      titulo: 'Babel Brasileira - 80+ Nacionalidades',
       icon: <Clock className="text-indigo-600" size={32} />,
-      descricao: 'Foz do Iguaçu tem a maior diversidade étnica do Brasil! São mais de 80 nacionalidades diferentes vivendo em harmonia, criando uma rica mistura cultural.',
-      curiosidade: 'Você pode almoçar sushi, jantar árabe e tomar chimarrão no mesmo dia!',
+      descricao: 'Foz do Iguaçu tem a maior diversidade étnica do Brasil! São mais de 80 nacionalidades diferentes vivendo em harmonia, criando uma rica mistura cultural única no mundo.',
+      curiosidade: 'Você pode almoçar sushi, jantar árabe, tomar chimarrão e comprar produtos chineses no mesmo quarteirão!',
       cor: 'bg-indigo-100 border-indigo-600'
     }
   ];
