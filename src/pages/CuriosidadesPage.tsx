@@ -3,7 +3,7 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
-import { Gift, Bird, Mosque, ShoppingBag, Clock, Users, Sparkles, MapPin } from 'lucide-react';
+import { Gift, Bird, Building, ShoppingBag, Clock, Users, Sparkles, MapPin } from 'lucide-react';
 
 const CuriosidadesPage = () => {
   const curiosidades = [
@@ -26,7 +26,7 @@ const CuriosidadesPage = () => {
     {
       id: 'mesquita-arabe',
       titulo: 'Mesquita Árabe - Uma das Maiores da América Latina',
-      icon: <Mosque className="text-ocre-terra" size={32} />,
+      icon: <Building className="text-ocre-terra" size={32} />,
       descricao: 'A Mesquita Omar Ibn Al-Khattab é uma das maiores da América Latina, com capacidade para 1.500 fiéis. Sua arquitetura impressionante inclui minaretes de 35 metros e jardins inspirados no Oriente Médio.',
       curiosidade: 'Foi construída seguindo técnicas ancestrais árabes, sem usar pregos na estrutura principal!',
       cor: 'bg-ocre-terra/10 border-ocre-terra'
